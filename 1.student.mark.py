@@ -67,14 +67,22 @@ def main():
     num_courses = 0
 
     while True:
-     selection = select(range(0, 8))
-     if selection == 0:
+        print("\n===== Student Mark Management =====")
+        print("1. Input number of students & student info")
+        print("2. Input number of courses & course info")
+        print("3. Select course & input marks")
+        print("4. List students")
+        print("5. List courses")
+        print("6. Show student marks for a course")
+        print("0. Exit")
+        selection = select(range(0, 8))
+        if selection == 0:
             break
-     elif selection == 1:
+        elif selection == 1:
           num_students = input_number("students")
           print(f"==> There are {num_students} student(s) in this class")
 
-     elif selection == 2:
+        elif selection == 2:
             if num_students == 0:
                 print("Please input the number of students first")
                 pause()
@@ -87,11 +95,11 @@ def main():
             
             list_students(students)
 
-     elif selection == 3:
+        elif selection == 3:
             num_courses = input_number("courses")
             print(f"==> There are {num_courses} course(s) in this class")
 
-     elif selection == 4:
+        elif selection == 4:
             if num_courses == 0:
                 print("Please input the number of courses first")
                 pause()
@@ -103,8 +111,7 @@ def main():
                 courses.append(input_infos("course", ("id", "name")))
 
             list_courses(courses)
-
-     elif selection == 5:
+        elif selection == 5:
             list_courses(courses)
             if len(courses) > 0:
                 selected_course = select(range(1, num_courses+1), "Select a course: ") - 1
@@ -114,15 +121,15 @@ def main():
                     print(f"Student No. {i+1} - {students[i]['name']}: ", end="")
                     input_mark(students[i], course_id)
 
-     elif selection == 6:
+        elif selection == 6:
             list_courses(courses)
 
-     elif selection == 7:
+        elif selection == 7:
             list_students(students)
 
-     else:
+        else:
             print("Invalid input. Please try again.")
-     pause()
+        pause()
 
 
 if __name__ == "__main__":
